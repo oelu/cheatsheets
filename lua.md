@@ -1,6 +1,8 @@
 # LUA
 * Some Notes from the crash course at: http://luatut.com/crash_course.html
 
+<!-- toc -->
+
 ## Function Definition
 
 ```lua
