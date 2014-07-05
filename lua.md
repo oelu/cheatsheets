@@ -2,7 +2,20 @@
 * Some Notes from the crash course at: http://luatut.com/crash_course.html
 
 <!-- toc -->
+* [Function Definition](#function-definition)
+* [Comments](#comments)
+  * [Block Comments](#block-comments)
+  * [Single and multi line comments](#single-and-multi-line-comments)
+* [Variables](#variables)
+* [For Loops](#for-loops)
+* [Conditional Statements](#conditional-statements)
+  * [IF Condition](#if-condition)
+  * [Else](#else)
+* [Operators](#operators)
+* [Strings](#strings)
+* [Tables](#tables)
 
+<!-- toc stop -->
 ## Function Definition
 
 ```lua
