@@ -94,8 +94,17 @@ end
 ``%``:
     Modulus Operator (remainder division)
 
-``+``, ``-``, ``*``, ``/`` and ``^``: 
+``+``, ``-``, ``*``, ``/`` and ``^``:
     Common Operators such as the ones above are also present
 
 ## Strings
+
+* Concatenation ``..``, use ``”str1”..”str2”``
+* Length is shown with ``#`` as a prefix operator.
+
+```lua
+ string = “this is a string”
+ > print (#string)
+ 16
+```
 
