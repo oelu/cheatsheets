@@ -14,6 +14,8 @@
 * [Operators](#operators)
 * [Strings](#strings)
 * [Tables](#tables)
+* [Modules](#modules)
+* [Files](#files)
 
 <!-- toc stop -->
 
