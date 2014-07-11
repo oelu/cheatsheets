@@ -159,3 +159,14 @@ require “util”
 ```
 This searches the lua search path for the file ``util.lua``
 
+## Files
+
+* Common Idiom to read files:
+
+```lua
+-- prints out error messages
+local f = assert(io.open("lua.md", "r"))
+local content = f:read("*all")
+f:close()
+print(content)
+```
