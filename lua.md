@@ -66,6 +66,8 @@ local num = 1000
 
 ## For Loops
 
+### Numeric For
+
 ```lua
 > for i = 1, 10, 1 do
 print("number is", i)
@@ -80,6 +82,22 @@ number is       10
 
 Syntax is ``for the_number = 1, MAXIMUM, STEP do``
 
+### Generic For
+
+Generic for uses an ``iterator function`` to iterate over all elements in a data structure.
+
+```lua
+-- print values of table t
+for k, v in pairs(t) do print(k, v) end
+```
+
+``k`` and ``v`` are used for key and value pairs. 
+
+The standard library provides iterators: 
+* ``io.lines``: iterate over lines in file
+* ``pairs``: iterate over ``key`` and ``value`` pairs in tables. 
+* ``string.gmatch`: iterate over words in strings. 
+
 ## Conditional Statements 
 * Evaluates to ``true`` or ``false``
 * Statements can be neglected with ``not``
@@ -93,17 +111,31 @@ for that name.
 
 ```lua
 if name then
-    print (“Hello”, name)
+print (“Hello”, name)
 end
+```
+
+```lua
+if a == 0 then a = 1 end
 ```
 
 ### Else
 
 ```lua
 if name then
-    print (“Hello”,name)
+print (“Hello”,name)
 else
-    print(“Hello Stranger”)
+print(“Hello Stranger”)
+end
+```
+
+### While
+
+Print as long as a[i] does contain values, eg. does not evaluate to ´´nil´´ does contain values, eg. does not evaluate to ``nil``
+```lua
+while a[i] do
+    print (a[i])
+    i = i + 1
 end
 ```
 
@@ -132,9 +164,9 @@ string = “this is a string”
 16
 ```
 
-* Multiline strings need to be enclosed in ``[[ string ]]``
+* Multi line strings need to be enclosed in ``[[ string ]]``
 
-* Print each line in multiline string
+* Print each line in multi line string
 ```lua
 for line in lines:gmatch("[^\n]+") do
     print(line)
@@ -172,3 +204,12 @@ local content = f:read("*all")
 f:close()
 print(content)
 ```
+
+## Errors
+
+Explicit errors can be called with the ``error()`` function. ``assert()`` 
+checks if an error has occurred and prints the ``error message`` given as argument.
+
+```lua
+n = assert(io.read(“*number”), “invalid input”)
+````
