@@ -26,14 +26,14 @@
 <!-- toc stop -->
 
 ## Function Definition
+* Functions are first class elements in lua. Therefore variables can store functions. 
+* Any numbers of arguments can be passed to a number, arguments that are not a parameter will evaluate to ``nil``.
 
 ```lua
 function get_all_factors(number)
     ...
 end
 ```
-
-* Any numbers of arguments can be passed to a number, arguments that are not a parameter will evaluate to ``nil``.
 
 ### Default arguments
 Default arguments can be set in the function body: 
@@ -53,6 +53,69 @@ function multireturn()
 end
 ```
 
+### Variable number of arguments
+
+``...`` (vararg expression) can be used to pass a variable number of arguments to a function:
+
+```lua
+function add(...)
+    local s = 0
+    for i, v in ipairs(...) do -- evaluate ... and return position (i) and value (v)
+        s = s + v   -- add v to sum of s 
+        end
+    return s
+end
+```
+
+### Named Arguments
+Named arguments can be passed to a function via a table. This is useful
+if the function receives many optional parameters.
+
+```lua
+args{old=”temp.lua”, new=”temp1.lua”}
+
+function rename(arg)    --> this is the function definition
+
+rename(args) --> uses the argument table args
+```
+
+### Define a function like a variable
+
+```lua
+function foo(x) return 2*x  end
+
+foo = function (x) return 2*x   end     --> is equal to the statement above
+```
+
+### Higher order function
+Functions can receive other functions as arguments. These type of functions are
+called higher order functions: 
+
+```lua
+table.sort(something, function (a,b) return (a.name > b.name) end)
+--> sort receives the sorting algorithm for two values and will expand it to all values in the list
+```
+
+### Closures
+Functions can contain other functions. So, we can embed function b in function a. This mechanism
+can be used to overwrite luas default functions. 
+
+```lua
+local oldSin = math.sin  --> assign the math.sin function to oldSin for further access
+
+math.sin = function (x)     --> overwrite original function
+    return oldSin(x*math.pi/180)
+end
+```
+
+### Non-Global Functions
+* Tables can contain functions. 
+
+```lua
+LIB = {}
+LIB.foo = function (x,y) return x + y end
+LIB.goo = function (x,y) return x - y end
+```
 
 ## Comments
 
