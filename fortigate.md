@@ -35,6 +35,16 @@ Telnet:
 
     execute telnet targethost
 
+## Firewall
+
+Show some statistics:
+
+    firewall statistic show
+
+Show session table:
+
+    sys session full-stat
+
 ## VDOMS
 
 Change vdom:
@@ -90,11 +100,57 @@ Show routing table:
 
     get router info routing-table all
 
+### OSPF
+
+Neighbor status (neighbours have state up/down):
+
+    get router info ospf neighbor all
+
+Delete all OSPF entries:
+
+    excecute router clear ospf process
+
+Enable debug output: 
+
+    diagnose ip router ospf all enable
+    diagnose ipo router ospf level info
+
+Get Router Status: 
+
+    get router info ospf status
+
+Sniff for OSPF packets: 
+
+    diagnose sniffer packet any ‘proto 89’ 4
+
+Debug OSPF: 
+
+    dignose ip router ospf all enable
+    diagnose ip router ospf level info
+    diagnose debug enable
+
 ## Ipsec
 
 Show ipsec tunnels:
 
     get ipsec tunnel list 
+
+Troubleshoot VPN connections:
+
+    diag debug application ike -1
+    diagnose vpn ike log-filter clear
+    diagnose vpn ike log-filter dst-addr 1.2.3.4
+    diagnose debug app ike 255
+    diagnose debug enable
+
+## Debug Flow
+
+Debug traffic flow through the fortigate: 
+
+    diagnose debug enable
+    diagnose debug flow show console enable
+    diagnose debug flow filter add 10.10.0.1
+    diagnose debug flow trace start 100
 
 ## Admin Interface
 
