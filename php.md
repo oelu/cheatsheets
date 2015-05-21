@@ -1,6 +1,7 @@
 # PHP
+Some notes on PHP syntax.
 
-## Embedd PHP in html
+## Embed PHP in html
 
 ```php
 <?php
@@ -19,13 +20,60 @@
 
 ### If / Else
 ```php
-<?php
-        if($items > 5) {
-          echo "You get a 10% discount!";
+        if (True) {
+            echo “hello”;
+        }
+        else if (False) {
+            echo “this is False”;
         }
         else {
-        echo "You get a 5% discount!";    
+            echo “test”;
         }
+```
+### Switch Statement
+```php
+    switch (2) {
+        case 0:
+            echo ‘The value is 0’;
+            break;
+        case 1:
+            echo ‘The value is 1’;
+            break;
+        case 2:
+            echo ‘The value is 2’;
+            break;
+        default:
+            echo “The value isn’t 0, 1 or 2”;
+    }
+}>
+```
+
+The switch statement does have an alternative syntax for better readability.
+```php
+    switch ($variable):
+        case 0:
+            echo “The value is 0”;
+            break;
+    endswitch;
+```
+
+## Data Structures
+
+### Array
+
+```php
+<?php
+      $array = array(“Egg”, “Tomato”, “Beans”);
 ?>
 ```
 
+Accessing elements by offset: 
+```php
+        $tens = array(10, 20, 30, 40, 50);
+        echo $tens[2];
+```
+
+Values can be deleted with ```unset```:
+```php
+    unset($languages[0]);
+```
