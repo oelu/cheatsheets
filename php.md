@@ -101,3 +101,44 @@ Values can be deleted with ```unset```:
         
           unset($lang);
 ```
+
+### While Loop
+
+```php
+while(condition) {
+    do_something();
+}
+```
+
+alternate syntax for while:
+```php
+while(condition):
+endwhile;
+```
+
+do-while syntax:
+```php
+do {
+somecommand;
+} while(condition);
+```
+
+## Functions
+
+String functions:
+```php
+    $length = strlen(“Olivier”);
+    print $length;
+    $uppercase = strtoupper($myname);
+    $lowercase = strtolower($myname);
+```
+
+Array functions:
+```php
+    sort($array);
+    rsort($array);
+    join(“, “, $array)
+```
+
+* ```strpos()```: find dhe position of the forst occurence of a substring in a string.
+
