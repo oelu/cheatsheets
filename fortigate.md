@@ -112,7 +112,10 @@ Debug FSSO:
     diag debug enable
     diag debug authd fsso list
     diag debug authd fsso server-status
-    diag debug authd fsso-summary
+    diag debug authd fsso summary
+    diag debug authd fsso clear-logons
+    diag debug authd fsso refresh-logons
+    diag debug authd fsso refresh-groups
 
 ## Routing
 
