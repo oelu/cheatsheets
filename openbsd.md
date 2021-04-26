@@ -29,3 +29,20 @@
 * Enable pf at startup `rcctl enable pf`
 * Show current pf rules `pfctl -s rules`
 * Show current pf configuration and stats `pfctl -s all`
+
+### Example configuration for single-homed system
+```
+ethernet_if = "vio0"
+icmp_types="echoreq"
+
+block in log
+
+antispoof quick for $ethernet_if
+
+set skip on lo0
+pass out on $ethernet_if from any to any 
+pass in on $ethernet_if inet proto tcp to any port ssh 
+pass in on $ethernet_if inet proto tcp to any port 80 
+pass in on $ethernet_if inet proto tcp to any port 443 
+pass in inet proto icmp all icmp-type $icmp_types 
+```
