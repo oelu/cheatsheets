@@ -29,6 +29,7 @@
 * Enable pf at startup `rcctl enable pf`
 * Show current pf rules `pfctl -s rules`
 * Show current pf configuration and stats `pfctl -s all`
+* Test new rules `pfctl -ef <pf.conf>; sleep 15; pfctl -d`
 
 ### Example configuration for single-homed system
 ```
@@ -41,8 +42,6 @@ antispoof quick for $ethernet_if
 
 set skip on lo0
 pass out on $ethernet_if from any to any 
-pass in on $ethernet_if inet proto tcp to any port ssh 
-pass in on $ethernet_if inet proto tcp to any port 80 
-pass in on $ethernet_if inet proto tcp to any port 443 
+pass in on $ethernet_if inet proto tcp to any port { 22 80 443 }
 pass in inet proto icmp all icmp-type $icmp_types 
 ```
