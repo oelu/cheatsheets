@@ -2,13 +2,19 @@
 
 ## Package Management
 
-* `pkg_add <packagename>` install package
-* `pkg_del <packagename>` remove package
+* `pkg_add <package name>` install package
+* `pkg_del <package name>` remove package
 * `pkg_info -Q` query for package
 
 ## Upgrades
 * `syspatch` install base system patches
 * `fw_update -a` install available firmware updates for all devices
+
+### New Version upgrade
+
+- Do an automatic system upgrade with `sysupgrade
+    - The system will reboot automatically
+- After the reboot do a `syspatch`, `pkg_add -u` and a `sysmerge -d`
 
 ## Services
 * `rcctl <command> service` enable or disable a service, can also be used to start/stop services
@@ -26,7 +32,7 @@
 * Manual disable pf `pfctl -d`
 * Load specific configuration file `pfctl -f /etc/pf.conf`
 * Parse configuration file (check for errors) `pfctl -nf /etc/pf.conf`
-* Enable pf at startup `rcctl enable pf`
+* Enable pf at start up `rcctl enable pf`
 * Show current pf rules `pfctl -s rules`
 * Show current pf configuration and stats `pfctl -s all`
 * Test new rules `pfctl -ef <pf.conf>; sleep 15; pfctl -d`
