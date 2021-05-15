@@ -8,7 +8,11 @@
 * `pkg_info -mz | tee packages` list all manually installed packages 
 * `pkg_add -l packages` install the set of packages from provided file
 
-## Upgrades
+### Ports
+* Search for a package in ports tree `cd /usr/ports; make search key=firefox`
+* Install package from ports `cd /usr/ports/www/mozilla-firefox; make install`
+
+### Upgrades
 * `syspatch` install base system patches
 * `fw_update -a` install available firmware updates for all devices
 
