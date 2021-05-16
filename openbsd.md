@@ -9,6 +9,10 @@
 * `pkg_add -l packages` install the set of packages from provided file
 
 ### Ports
+* Download ports tree via csv: `cd /usr; doas cvs -qd anoncvs@ftp.hostserver.de:/cvs checkout -rOPENBSD_6_9 -P ports`
+* Add user foo to wsrc group: `user mod -G wsrc foo`
+* Change group ownership of ports to usergroup wsrc: `chgrp wsrc ports; chmod 775 ports`
+* Update the ports tree: `cvs -q up -Pd -rOPENBSD_6_9`
 * Search for a package in ports tree `cd /usr/ports; make search key=firefox`
 * Install package from ports `cd /usr/ports/www/mozilla-firefox; make install`
 
