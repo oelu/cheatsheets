@@ -22,7 +22,7 @@
 
 ### New Version upgrade
 
-- Do an automatic system upgrade with `sysupgrade
+- Do an automatic system upgrade with `sysupgrade`
     - The system will reboot automatically
 - After the reboot do a `syspatch`, `pkg_add -u` and a `sysmerge -d`
 
