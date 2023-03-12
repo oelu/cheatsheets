@@ -3,29 +3,36 @@
 ## Networking
 
 Show network interface configuration:
+
     config system interface
 
 Execute ping:
+
     execute ping 8.8.8.8
 
 Traceroute:
+
     execute traceroute 8.8.8.8
 
 Telnet:
+
     execute telnet targethost
 
 ## VDOMS
 
 Change vdom:
+
     config vdom
     edit vdomname
 
 ## Performance
 
 Overall performance:
+
     get system performance status
 
 Top (use Shift+M for memory usage):
+
     get system performance top
 
 ## Proxy
@@ -47,4 +54,5 @@ Show routing table:
 ## Ipsec
 
 Show ipsec tunnels:
+
    get ipsec tunnel list 
