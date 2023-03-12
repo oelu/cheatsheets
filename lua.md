@@ -8,14 +8,18 @@
   * [Single and multi line comments](#single-and-multi-line-comments)
 * [Variables](#variables)
 * [For Loops](#for-loops)
+  * [Numeric For](#numeric-for)
+  * [Generic For](#generic-for)
 * [Conditional Statements](#conditional-statements)
   * [IF Condition](#if-condition)
   * [Else](#else)
+  * [While](#while)
 * [Operators](#operators)
 * [Strings](#strings)
 * [Tables](#tables)
 * [Modules](#modules)
 * [Files](#files)
+* [Errors](#errors)
 
 <!-- toc stop -->
 
