@@ -41,7 +41,7 @@ Move windows:
 ## Exiting i3
 * `Alt+Shift+e`
 
-# I*3 Configuration
+# I3 Configuration
 
 * Configuration file `$HOME/.i3/config`
 * To run commands in the `.i3/config` file use `exec <command>`
