@@ -140,4 +140,12 @@ Printing out a table. Elements in the table will be passed to the function (eg. 
 table.foreach(table, print)
 ```
 
+## Modules 
+
+Modules can be imported with: 
+
+```lua
+require “util”
+```
+This searches the lua search path for the file ``util.lua``
 
