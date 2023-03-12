@@ -31,6 +31,18 @@
 
 - Use `apm` to show current power usage
 - Set CPU performance to high `apm -H`
+- Put the computer to suspend with `zzz`
+- Put the computer to hibernate with `ZZZ`
+
+### Enable screen lock for suspend / hibernae 
+- APM executes the script `/etc/apm/suspend` or `/etc/apm/hibernate` before going into suspend or hibernate. 
+
+- Create a file with the following content (replace <username> with your actual username):
+```
+#!/bin/sh
+doas -u <username> env DISPLAY=:0 XAUTHORITY=/home/<username>/.Xauthority mate-screensaver-command -a &
+```
+- Make it executable with `chmod +x /etc/apm/suspend`
 
 ## Packet Filter (pf)
 * Manual enable pf `pfctl -e`
