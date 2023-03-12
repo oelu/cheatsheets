@@ -77,3 +77,27 @@ Values can be deleted with ```unset```:
 ```php
     unset($languages[0]);
 ```
+
+## Loops
+
+### For Loop
+```php
+        // Echoes the first five even numbers
+        for ($i = 2; $i < 11; $i = $i + 2 ){
+          echo $i;
+        }
+```
+
+### Foreach Loop
+
+```php
+          $langs = array(“JavaScript”,
+          “HTML/CSS”, “PHP”,
+          “Python”, “Ruby”);
+        
+          foreach ($langs as $lang) {
+              echo “<li>$lang</li>”;
+          }
+        
+          unset($lang);
+```
