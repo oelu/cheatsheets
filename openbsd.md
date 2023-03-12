@@ -12,3 +12,11 @@
 
 ## Services
 * `rcctl <command> service` enable or disable a service, can also be used to start/stop services
+
+## Mount USB Stick
+
+* Show all storage devices with `sysctl hw.disknames`
+* Show partition layout of USB disk `disklabel sd1`
+* Mount the USB disk `mount_msdos /dev/sd1i /mnt/usbstick`
+* Do your stuff
+* Unmount `umount /mnt/usbstick`
