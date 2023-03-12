@@ -3,7 +3,7 @@
 ## Commands
 
 * `Alt+d`:  open dmenu
-* `Alt+Enter`:  open Terminal
+* `Alt+Enter`:  open terminal
 
 ## Move between windows
 
@@ -29,14 +29,20 @@ use the following keys:
 
 ## Closing windows
 
-* `Alt+Shift+q`: closes window. 
+* `Alt+Shift+q`: closes window 
 
 ## Work spaces
 
 * `Alt+n`: creates work space with number `
 
 Move windows:
-* `Alt+Shift+n`: moves current active window to work space `n`.
+* `Alt+Shift+n`: moves current active window to work space `n`
 
 ## Exiting i3
 * `Alt+Shift+e`
+
+# I*3 Configuration
+
+* Configuration file `$HOME/.i3/config`
+* To run commands in the `.i3/config` file use `exec <command>`
+* `exec feh --bg-scale /path/to/background.jpg` sets the desktop background
