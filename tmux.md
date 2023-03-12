@@ -61,6 +61,3 @@ Enter copy mode:
 Copy and Paste: 
 
     vim bindings
-
-
-
