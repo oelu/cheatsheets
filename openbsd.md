@@ -5,6 +5,8 @@
 * `pkg_add <package name>` install package
 * `pkg_del <package name>` remove package
 * `pkg_info -Q` query for package
+* `pkg_info -mz | tee packages` list all manually installed packages 
+* `pkg_add -l packages` install the set of packages from provided file
 
 ## Upgrades
 * `syspatch` install base system patches
