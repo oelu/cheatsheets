@@ -52,7 +52,6 @@ Show console log:
     execute log filter field hostname www.google.ch
     execute log display
 
-
 ## Routing
 
 Show routing table:
