@@ -6,6 +6,14 @@ Show network interface configuration:
 
     config system interface
 
+Show all nics:
+
+    diagnose hardware deviceinfo nic
+
+Show all info for specific nic:
+
+    diagnose hardware deviceinfo nic dmz
+
 Execute ping:
 
     execute ping 8.8.8.8
@@ -56,3 +64,11 @@ Show routing table:
 Show ipsec tunnels:
 
     get ipsec tunnel list 
+
+## Admin Interface
+
+Set certificate for admin interface:
+
+    config system global
+    set admin-server-cert certname
+    end
