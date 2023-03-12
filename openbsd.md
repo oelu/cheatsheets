@@ -27,6 +27,11 @@
 * Do your stuff
 * Unmount `umount /mnt/usbstick`
 
+## Power Management
+
+- Use `apm` to show current power usage
+- Set CPU performance to high `apm -H`
+
 ## Packet Filter (pf)
 * Manual enable pf `pfctl -e`
 * Manual disable pf `pfctl -d`
