@@ -1,4 +1,26 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
+
+- [Fortigate Cheat-sheet](#fortigate-cheat-sheet)
+  - [Networking](#networking)
+  - [Firewall](#firewall)
+  - [VDOMS](#vdoms)
+  - [Performance](#performance)
+  - [Proxy](#proxy)
+    - [SSL Inspection](#ssl-inspection)
+    - [FSSO](#fsso)
+  - [Routing](#routing)
+    - [OSPF](#ospf)
+  - [Ipsec](#ipsec)
+  - [Debug Flow](#debug-flow)
+  - [Admin Interface](#admin-interface)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Fortigate Cheat-sheet
+
+[TOC]
 
 ## Networking
 
