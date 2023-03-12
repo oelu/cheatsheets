@@ -16,6 +16,7 @@
 * [Tables](#tables)
 
 <!-- toc stop -->
+
 ## Function Definition
 
 ```lua
@@ -127,6 +128,15 @@ string1 string2
 string = “this is a string”
 > print (#string)
 16
+```
+
+* Multiline strings need to be enclosed in ``[[ string ]]``
+
+* Print each line in multiline string
+```lua
+for line in lines:gmatch("[^\n]+") do
+    print(line)
+end
 ```
 
 ## Tables
