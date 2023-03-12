@@ -1,5 +1,5 @@
 # LUA
-* Some Notes from the crash course at: http://luatut.com/crash_course.html
+* Some Notes from the crash course at: http://luatut.com/crash_course.html and http://www.lua.org
 
 <!-- toc -->
 * [Function Definition](#function-definition)
@@ -93,6 +93,21 @@ function foo(x) return 2*x  end
 foo = function (x) return 2*x   end     --> is equal to the statement above
 ```
 
+Functions can also be assigned to tables: 
+```lua
+-- example, to show that tables can be used as function store
+
+foo = {} --> create new table
+foo.bar = function () print("foo bar!") end --> assign function to key bar of table foo
+
+foo.bar() --> produces output "foo bar!"
+```
+
+```bash
+$ lua function_table.lua
+foo bar!
+```
+
 ### Higher order function
 Functions can receive other functions as arguments. These type of functions are
 called higher order functions: 
@@ -183,8 +198,9 @@ Syntax is ``for the_number = 1, MAXIMUM, STEP do``
 Generic for uses an ``iterator function`` to iterate over all elements in a data structure.
 
 ```lua
--- print values of table t
-for k, v in pairs(t) do print(k, v) end
+t = {1, 2, 3}
+for k in pairs(t) do print(k) end --> only stored value will be printed
+for k,v in pairs(t) do print(k,v) end --> key and value pair will be printed
 ```
 
 ``k`` and ``v`` are used for key and value pairs. 
@@ -268,6 +284,52 @@ for line in lines:gmatch("[^\n]+") do
     print(line)
 end
 ```
+
+### Standard String Library
+* Is available with ``string.functionname``.
+
+Common functions:
+* ``string.len(string)``: returns length of string
+* ``string.rep(s, n)`` or ``s:rep(n)`` returns the string ``s`` ``n``-times
+* ``string.lower(s)`` returns lowercase version of string ``s``
+* ``string.upper(s)``returns uppercase version of string ``s``
+* ``string.sub(s, i, j)`` returns substring of ``s`` ``i``-th to ``j``-th character
+* ``string.format()`` used to print string, has similar format options as C function ``printf()``
+
+### Patterm-Matching Functions
+``find``, ``match``and ``gsub``
+
+#### string.find() and string.gsub()
+``string.find(string, “pattern”)``: searches for a pattern inside a string. Returns ``i``and ``j`` (i=start j=end position of substring in string).
+``string.gsub(string, i, j)``: returns string from i-th to j-th character. 
+
+Can be chained together with string.gsub to return matching string: 
+```lua
+> s = “hello world!”
+> print(string.sub(s, string.find(s, “hello”)))
+hello
+```
+
+#### string.match()
+``string.match(string, “pattern”)``: prints out matching pattern.
+
+```lua
+> print(string.match(“hello world!”, “hello”))
+hello
+```
+
+#### string.gsub()
+``string.gsub(string, pattern, replacementstring)``: replaces ``pattern`` in string with ``replacementstring``
+
+```lua
+> s = “lua is cute”
+> s2 = string.gsub(s, “cute”, “great”)
+> print(s2)
+lua is great
+```
+
+#### string.gmatch()
+* To be done
 
 ## Tables
 
