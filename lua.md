@@ -3,6 +3,8 @@
 
 <!-- toc -->
 * [Function Definition](#function-definition)
+  * [Default arguments](#default-arguments)
+  * [Multiple return values](#multiple-return-values)
 * [Comments](#comments)
   * [Block Comments](#block-comments)
   * [Single and multi line comments](#single-and-multi-line-comments)
@@ -30,6 +32,27 @@ function get_all_factors(number)
     ...
 end
 ```
+
+* Any numbers of arguments can be passed to a number, arguments that are not a parameter will evaluate to ``nil``.
+
+### Default arguments
+Default arguments can be set in the function body: 
+```lua
+function incrementcounter (n)
+    n = n or 1 -- assign default value to n if n evaluates to nil
+    count = count + n 
+end
+```
+
+### Multiple return values
+Return Statements can return more than one value: 
+
+```lua
+function multireturn()
+    return 1, 2
+end
+```
+
 
 ## Comments
 
