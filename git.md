@@ -14,3 +14,5 @@ git config --global user.name "Mona Lisa"
 - `git add <path>` adds path to git repository.
 - `git diff <filename>` shows diff for file.
 - `git commit` commits changes.
+- `git push` push changes.
+- `git pull` pull changes.
