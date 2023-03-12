@@ -30,14 +30,19 @@ Split window vertically:
 
 ### Panes
 Switching between panes: 
+
     C-a hjkl (vim movements)
+
 Resize Panes: 
+
     C-a HJKL (vim movements)
 
 ## Copy Mode
 Enter copy mode:
+
     C-a ESC
 Copy and Paste: 
+
     vim bindings
 
 
