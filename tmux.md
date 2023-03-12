@@ -3,6 +3,10 @@ Cheatsheet to match my tmux configuration.
 
 ## Settings
 C-a is command key.
+Reload tmux configuration:
+
+    C-a r
+
 
 ## Sessions
 Create a new session:
