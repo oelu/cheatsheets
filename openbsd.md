@@ -20,3 +20,12 @@
 * Mount the USB disk `mount_msdos /dev/sd1i /mnt/usbstick`
 * Do your stuff
 * Unmount `umount /mnt/usbstick`
+
+## Packet Filter (pf)
+* Manual enable pf `pfctl -e`
+* Manual disable pf `pfctl -d`
+* Load specific configuration file `pfctl -f /etc/pf.conf`
+* Parse configuration file (check for errors) `pfctl -nf /etc/pf.conf`
+* Enable pf at startup `rcctl enable pf`
+* Show current pf rules `pfctl -s rules`
+* Show current pf configuration and stats `pfctl -s all`
