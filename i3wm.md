@@ -2,24 +2,41 @@
 
 ## Commands
 
-* `ALT+D`:  open dmenu
-* `ALT+ENTER`:  open Terminal
+* `Alt+d`:  open dmenu
+* `Alt+Enter`:  open Terminal
 
 ## Move between windows
 
-* `ALT + j,k,l,+`
+* `Alt + j,k,l,+`
 
 ## Split Windows
 
-* `ALT+v`: to split next window vertically
-* `ALT+h`: to split next window horizontally
+* `Alt+v`: to split next window vertically
+* `Alt+h`: to split next window horizontally
 
 ## Changing Container Layout
 
 There is a splitted, stacked and tabbed container layout. To switch modes, 
 use the following keys:
 
-`ALT+e`: split view
-`Alt+s`: stacking view
-`Alt+w`: tabbed view
+* `Alt+e`: split view
+* `Alt+s`: stacking view
+* `Alt+w`: tabbed view
 
+## Full screen mode
+
+* `Alt+f`: toggle full screen mode for window
+
+## Closing windows
+
+* `Alt+Shift+q`: closes window. 
+
+## Work spaces
+
+* `Alt+n`: creates work space with number `
+
+Move windows:
+* `Alt+Shift+n`: moves current active window to work space `n`.
+
+## Exiting i3
+* `Alt+Shift+e`
