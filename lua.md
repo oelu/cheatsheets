@@ -3,14 +3,17 @@
 
 ## Function Definition
 
+    ```lua
     function get_all_factors(number)
         ...
     end
+    ```
 
 ## Comments
 
 ### Block Comments
 
+    ```lua
     --[[--
         block comment
 
@@ -18,26 +21,34 @@
     
         @Returns: return value
     --]]--
+    ```
 
 ### Single and multi line comments
 
+    ```lua
     -- Single Line Comment
 
     --[[ multi line
     comment ]]
+    ```
 
 ## Variables
 
+    ```lua
     number = 1000
     string = “some text”
     Nothing = nil
+    ```
 
 Local variables: 
 
+    ```lua
     local num = 1000
+    ```
 
 ## For Loops
 
+    ```lua
     > for i = 1, 10, 1 do
     print("number is", i)
     end
@@ -47,6 +58,7 @@ Local variables:
     ...
     number is       10
     >
+    ```
 
 Syntax is ``for the_number = 1, MAXIMUM, STEP do``
 
@@ -61,17 +73,21 @@ Note: undeclared variables evaluate to ``nil``and nil is evaluated as ``false`` 
 Therefore the following snippet checks if the variable ``name`` exists and then prints a greeting
 for that name. 
 
+    ```lua
     if name then
         print (“Hello”, name)
     end
+    ```
 
 ### Else
 
+    ```lua
     if name then
         print (“Hello”,name)
     else
         print(“Hello Stranger”)
     end
+    ```
 
 ## Operators
 
