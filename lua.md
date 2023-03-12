@@ -1,4 +1,4 @@
-# LUA
+# LUA CheatSheet
 * Some Notes from the crash course at: http://luatut.com/crash_course.html and http://www.lua.org
 
 <!-- toc -->
