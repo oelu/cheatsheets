@@ -102,11 +102,29 @@ end
 ## Strings
 
 * Concatenation ``..``, use ``”str1”..”str2”``
+
+```lua
+> print(“string1”..” “..”string2”)
+string1 string2
+```
+
 * Length is shown with ``#`` as a prefix operator.
 
 ```lua
- string = “this is a string”
- > print (#string)
- 16
+string = “this is a string”
+> print (#string)
+16
 ```
+
+## Tables
+
+``table.insert(table, element)`` : insert ``element`` in table ``table``
+``table.sort()`` : sort a table in ascending order
+
+Printing out a table. Elements in the table will be passed to the function (eg. ``print``) as argument: 
+
+```lua
+table.foreach(table, print)
+```
+
 
