@@ -3,11 +3,11 @@
 
 ## Function Definition
 
-    ```lua
-    function get_all_factors(number)
-        ...
-    end
-    ```
+```lua
+function get_all_factors(number)
+    ...
+end
+```
 
 ## Comments
 
