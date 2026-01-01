@@ -11,6 +11,11 @@
   - [Other Flags](#other-flags)
   - [Environment Variables](#environment-variables)
 - [Slash Commands](#slash-commands)
+  - [Navigation](#navigation)
+  - [Configuration](#configuration)
+  - [Context Management](#context-management)
+  - [Tools & Integrations](#tools-integrations)
+  - [Code & Git](#code-git)
 - [Keyboard Shortcuts](#keyboard-shortcuts)
 - [File References](#file-references)
   - [Examples](#examples)
@@ -19,6 +24,7 @@
   - [File Locations](#file-locations)
   - [Commands](#commands)
   - [What to Store](#what-to-store)
+  - [Input Tips](#input-tips)
 - [Custom Slash Commands](#custom-slash-commands)
   - [Example: /deploy command](#example-deploy-command)
 - [Model Aliases](#model-aliases)
@@ -37,6 +43,7 @@
   - [For Code Tasks](#for-code-tasks)
   - [Avoid](#avoid)
 <!-- /TOC -->
+
 
 ## CLI Basics
 
