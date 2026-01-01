@@ -1,146 +1,230 @@
-# CLAUDE CODE CLI
+# Claude Cheatsheet
 
-## Command Arguments
+<!-- TOC -->
+- [CLI Basics](#cli-basics)
+  - [Start Session](#start-session)
+  - [Model Selection](#model-selection)
+  - [System Prompts](#system-prompts)
+  - [Tool Control](#tool-control)
+  - [Output Format](#output-format)
+  - [Permissions](#permissions)
+  - [Other Flags](#other-flags)
+  - [Environment Variables](#environment-variables)
+- [Slash Commands](#slash-commands)
+- [Keyboard Shortcuts](#keyboard-shortcuts)
+- [File References](#file-references)
+  - [Examples](#examples)
+- [Shell Commands](#shell-commands)
+- [Memory (CLAUDE.md)](#memory-claudemd)
+  - [File Locations](#file-locations)
+  - [Commands](#commands)
+  - [What to Store](#what-to-store)
+- [Custom Slash Commands](#custom-slash-commands)
+  - [Example: /deploy command](#example-deploy-command)
+- [Model Aliases](#model-aliases)
+- [Agent Usage](#agent-usage)
+  - [Creating Agents](#creating-agents)
+  - [Using Agents](#using-agents)
+- [Skill Usage](#skill-usage)
+  - [Creating Skills](#creating-skills)
+  - [Skill Structure](#skill-structure)
+- [Prompting Tips](#prompting-tips)
+  - [Be Specific](#be-specific)
+  - [Thinking Modes](#thinking-modes)
+  - [Planning & Structure](#planning-structure)
+  - [Output Control](#output-control)
+  - [Effective Patterns](#effective-patterns)
+  - [For Code Tasks](#for-code-tasks)
+  - [Avoid](#avoid)
+<!-- /TOC -->
 
-### Basic Commands
+## CLI Basics
 
-- `claude` - start interactive REPL.
-- `claude "query"` - start REPL with initial prompt.
-- `claude -p "query"` - print response and exit (headless mode).
-- `claude -c` - continue most recent conversation.
-- `claude -r <session>` - resume session by ID or name.
-- `claude update` - update to latest version.
+### Start Session
+```
+claude                    # interactive mode
+claude "prompt"           # one-shot query
+claude -c                 # continue last conversation
+claude -r                 # resume conversation picker
+claude -p                 # print mode (no interactive)
+claude update             # update to latest version
+```
 
 ### Model Selection
-
-- `--model <model>` - set model (opus, sonnet, haiku, or full name).
-- `--fallback-model <model>` - fallback when primary model overloaded.
+```
+--model <model>           # set model (opus, sonnet, haiku, or full name)
+--fallback-model <model>  # fallback when primary model overloaded
+```
 
 ### System Prompts
-
-- `--system-prompt "text"` - replace default system prompt.
-- `--append-system-prompt "text"` - append to default prompt.
-- `--system-prompt-file <path>` - load system prompt from file.
+```
+--system-prompt "text"         # replace default system prompt
+--append-system-prompt "text"  # append to default prompt
+--system-prompt-file <path>    # load system prompt from file
+```
 
 ### Tool Control
-
-- `--tools "Read,Edit,Bash"` - specify available tools.
-- `--allowedTools "Bash(git:*)"` - tools that skip permission prompts.
-- `--disallowedTools "Edit"` - tools removed from context.
+```
+--tools "Read,Edit,Bash"       # specify available tools
+--allowedTools "Bash(git:*)"   # tools that skip permission prompts
+--disallowedTools "Edit"       # tools removed from context
+```
 
 ### Output Format
-
-- `--output-format text` - plain text output (default).
-- `--output-format json` - JSON output.
-- `--output-format stream-json` - streaming JSON.
+```
+--output-format text           # plain text output (default)
+--output-format json           # JSON output
+--output-format stream-json    # streaming JSON
+```
 
 ### Permissions
-
-- `--permission-mode plan` - start in plan mode.
-- `--dangerously-skip-permissions` - skip all permission prompts.
+```
+--permission-mode plan              # start in plan mode
+--dangerously-skip-permissions      # skip all permission prompts
+```
 
 ### Other Flags
+```
+--add-dir <path>          # add additional working directories
+--max-turns <n>           # limit agentic turns in headless mode
+--verbose                 # enable verbose logging
+--debug                   # enable debug mode
+```
 
-- `--add-dir <path>` - add additional working directories.
-- `--max-turns <n>` - limit agentic turns in headless mode.
-- `--verbose` - enable verbose logging.
-- `--debug` - enable debug mode.
+### Environment Variables
+```
+ANTHROPIC_API_KEY         # API key
+CLAUDE_CODE_USE_BEDROCK=1 # use AWS Bedrock
+CLAUDE_CODE_USE_VERTEX=1  # use Google Vertex
+```
 
 ## Slash Commands
 
 ### Navigation
-
-- `/help` - show help.
-- `/exit` - exit the REPL.
-- `/status` - show version, model, account info.
-- `/resume [session]` - resume conversation by ID/name.
-- `/clear` - clear conversation history.
+- `/help` - show help
+- `/exit` - exit the REPL
+- `/status` - show version, model, account info
+- `/resume [session]` - resume conversation by ID/name
+- `/clear` - clear conversation history
 
 ### Configuration
-
-- `/config` - open settings interface.
-- `/model [name]` - select or change model.
-- `/permissions` - view/update permissions.
-- `/memory` - edit CLAUDE.md memory files.
+- `/config` - open settings interface
+- `/model [name]` - select or change model
+- `/permissions` - view/update permissions
+- `/memory` - edit CLAUDE.md memory files
+- `/vim` - toggle vim keybindings
 
 ### Context Management
-
-- `/compact [focus]` - compact conversation with optional focus.
-- `/context` - visualize context usage.
-- `/cost` - show token usage statistics.
-- `/todos` - list current TODO items.
+- `/compact [focus]` - compact conversation with optional focus
+- `/context` - visualize context usage
+- `/cost` - show token usage statistics
+- `/todos` - list current TODO items
 
 ### Tools & Integrations
-
-- `/mcp` - manage MCP server connections.
-- `/hooks` - manage hook configurations.
-- `/ide` - manage IDE integrations.
-- `/agents` - manage custom subagents.
+- `/mcp` - manage MCP server connections
+- `/hooks` - manage hook configurations
+- `/ide` - manage IDE integrations
+- `/agents` - manage custom subagents
 
 ### Code & Git
+- `/review` - request code review
+- `/pr-comments` - view PR comments
+- `/init` - initialize project with CLAUDE.md
+- `/doctor` - check installation health
 
-- `/review` - request code review.
-- `/pr-comments` - view PR comments.
-- `/init` - initialize project with CLAUDE.md.
+## Keyboard Shortcuts
+- `Ctrl+C` - cancel current operation
+- `Ctrl+D` - exit session
+- `Ctrl+L` - clear screen
+- `Ctrl+O` - toggle verbose output (see thinking)
+- `Ctrl+R` - reverse search history
+- `Ctrl+V` / `Alt+V` - paste image from clipboard
+- `Escape` - interrupt response
+- `Esc Esc` - rewind code/conversation
+- `Tab` - autocomplete file paths
+- `Shift+Tab` / `Alt+M` - toggle permission modes
+- `Alt+P` / `Option+P` - switch model
+- `Up/Down` - navigate history
 
-### Custom Commands
+## File References
+```
+@filename              # reference file (tab-completable)
+@path/to/file.js       # reference with path
+@folder/               # reference entire directory
+@screenshot.png        # reference image
+```
 
-Create project commands:
+### Examples
+```
+@src/main.ts explain this file
+@package.json what deps are outdated?
+review @src/utils/ for security issues
+compare @old.js and @new.js
+```
 
-    mkdir -p .claude/commands
-    echo "Your prompt here" > .claude/commands/my-command.md
+## Shell Commands
+```
+!command               # run shell command
+$command               # same as above
+```
 
-Use with `/my-command`.
+Or just ask: "run npm install" / "build the project"
 
-## Prompting Tips
+## Memory (CLAUDE.md)
 
-### File References
+### File Locations
+```
+./CLAUDE.md              # project-specific (in repo)
+./CLAUDE.local.md        # project-specific (gitignored)
+~/.claude/CLAUDE.md      # global (all projects)
+```
 
-Use `@` to reference files in prompts:
+### Commands
+- `/init` - create CLAUDE.md in current project
+- `/memory` - open CLAUDE.md for editing
+- `#` prefix - add note to memory inline (e.g. `# always use tabs`)
 
-    Explain @src/utils/auth.js
-    Compare @file1.js and @file2.js
+### What to Store
+- Project conventions (formatting, naming)
+- Tech stack / framework versions
+- Common commands (build, test, deploy)
+- File structure notes
+- Personal preferences
 
-### Bash Mode
+### Input Tips
+- Use `\` at end of line for multiline input
+- Or use `Shift+Enter` for multiline
 
-Use `!` prefix for direct shell commands:
+## Custom Slash Commands
 
-    ! git status
-    ! npm test
+Create `.claude/commands/` in project or `~/.claude/commands/` globally.
 
-### Memory Shortcut
+### Example: /deploy command
+File: `.claude/commands/deploy.md`
+```markdown
+Deploy the application to $ARGUMENTS environment.
 
-Press `#` at start of input to add to CLAUDE.md memory.
+Steps:
+1. Run tests first
+2. Build for production
+3. Deploy using: ./scripts/deploy.sh $ARGUMENTS
+4. Verify deployment succeeded
+```
 
-### Multiline Input
+Usage: `/deploy staging` or `/deploy production`
 
-Use `\` at end of line or Shift+Enter for multiline.
+Variables: `$ARGUMENTS` for user input after command
 
-## Special Keywords
-
-### Extended Thinking
-
-- `ultrathink` - enables extended thinking for single request.
-
-Example:
-
-    ultrathink: design a caching layer for this API
-
-Note: Only works when MAX_THINKING_TOKENS not already set. Toggle thinking globally via `/config`.
-
-### Model Aliases
+## Model Aliases
 
 Use these as shorthand with `--model` or `/model`:
-
-- `sonnet` - Claude Sonnet (daily coding).
-- `opus` - Claude Opus (complex reasoning).
-- `haiku` - Claude Haiku (fast, simple tasks).
-- `opusplan` - Opus for planning, Sonnet for execution.
-- `sonnet[1m]` - Sonnet with 1M token context.
-
-### Mode Keywords
-
-- `plan` / `planning` - triggers plan mode context.
+```
+sonnet              # Claude Sonnet (daily coding)
+opus                # Claude Opus (complex reasoning)
+haiku               # Claude Haiku (fast, simple tasks)
+opusplan            # Opus for planning, Sonnet for execution
+sonnet[1m]          # Sonnet with 1M token context
+```
 
 ## Agent Usage
 
@@ -148,29 +232,29 @@ Use these as shorthand with `--model` or `/model`:
 
 Create agent files in `.claude/agents/` (project) or `~/.claude/agents/` (personal):
 
-    mkdir -p .claude/agents
+```markdown
+# .claude/agents/reviewer.md
+---
+name: reviewer
+description: Code review specialist. Use after writing code.
+tools: Read, Grep, Glob, Bash
+model: sonnet
+---
 
-Example agent file `.claude/agents/reviewer.md`:
+You are a senior code reviewer focusing on quality and security.
 
-    ---
-    name: reviewer
-    description: Code review specialist. Use after writing code.
-    tools: Read, Grep, Glob, Bash
-    model: sonnet
-    ---
-
-    You are a senior code reviewer focusing on quality and security.
-
-    When invoked:
-    1. Run git diff to see changes
-    2. Review modified files
-    3. Provide feedback by priority
+When invoked:
+1. Run git diff to see changes
+2. Review modified files
+3. Provide feedback by priority
+```
 
 ### Using Agents
 
 Agents are auto-delegated based on context, or invoke explicitly:
-
-    use the reviewer agent to check my auth module
+```
+use the reviewer agent to check my auth module
+```
 
 ## Skill Usage
 
@@ -178,38 +262,75 @@ Agents are auto-delegated based on context, or invoke explicitly:
 
 Create skills in `.claude/skills/` (project) or `~/.claude/skills/` (personal):
 
-    mkdir -p .claude/skills/my-skill
+```markdown
+# .claude/skills/my-skill/SKILL.md
+---
+name: my-skill
+description: What this skill does and when to use it.
+allowed-tools: Read, Edit
+---
 
-Example skill file `.claude/skills/my-skill/SKILL.md`:
+# My Skill
 
-    ---
-    name: my-skill
-    description: What this skill does and when to use it.
-    allowed-tools: Read, Edit
-    ---
+## Instructions
+Step-by-step guidance for using this skill.
 
-    # My Skill
-
-    ## Instructions
-    Step-by-step guidance for using this skill.
-
-    ## Examples
-    Concrete examples of skill usage.
+## Examples
+Concrete examples of skill usage.
+```
 
 ### Skill Structure
+- `SKILL.md` - main skill file (required)
+- Additional `.md` files for detailed docs
+- `scripts/` folder for utility scripts
 
-- `SKILL.md` - main skill file (required).
-- Additional `.md` files for detailed docs.
-- `scripts/` folder for utility scripts.
+## Prompting Tips
 
-## Keyboard Shortcuts
+### Be Specific
+- Provide context upfront
+- Use examples for complex tasks
+- Break down multi-step requests
 
-- `Ctrl+C` - cancel current input.
-- `Ctrl+D` - exit session.
-- `Ctrl+L` - clear terminal screen.
-- `Ctrl+O` - toggle verbose output (see thinking).
-- `Ctrl+R` - reverse search history.
-- `Ctrl+V` / `Alt+V` - paste image from clipboard.
-- `Shift+Tab` / `Alt+M` - toggle permission modes.
-- `Alt+P` / `Option+P` - switch model.
-- `Esc Esc` - rewind code/conversation.
+### Thinking Modes
+```
+think                  # extended thinking for complex problems
+think harder           # deeper reasoning
+ultrathink             # maximum reasoning depth
+```
+
+Example: `ultrathink: design a caching layer for this API`
+
+Note: Only works when MAX_THINKING_TOKENS not already set. Toggle thinking globally via `/config`.
+
+### Planning & Structure
+```
+plan                   # structured step-by-step approach
+multi staged plan      # break into phases with checkpoints
+/plan                  # enter plan mode before implementation
+```
+
+Mode keywords: `plan` / `planning` trigger plan mode context.
+
+### Output Control
+```
+be concise / be brief  # shorter responses
+be thorough            # detailed responses
+no yapping             # skip preamble, just answer
+```
+
+### Effective Patterns
+- "Think step by step" - improves reasoning
+- "Here's an example: [X] -> [Y]" - few-shot learning
+- "Output only JSON/code" - constrain format
+- "Before answering, consider..." - self-reflection
+
+### For Code Tasks
+- Share relevant files/context
+- Specify language/framework versions
+- Mention constraints (no external deps, etc)
+- Ask for tests alongside implementation
+
+### Avoid
+- Vague requests ("make it better")
+- Too many tasks at once
+- Assuming context from previous sessions
